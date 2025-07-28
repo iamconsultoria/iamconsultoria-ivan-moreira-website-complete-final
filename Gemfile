@@ -1,23 +1,16 @@
 source "https://rubygems.org"
 git_source(:github) {|repo| "https://github.com/#{repo}.git" }
 
-ruby "3.0.2"
-
+# Core Jekyll
 gem "jekyll", "~> 4.3.0"
-gem "bigdecimal"
-gem "logger"
 
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-seo-tag"
-  gem "jekyll-sitemap"
+# Jekyll plugins
+gem "jekyll-feed", "~> 0.17"
+gem "jekyll-sitemap", "~> 1.4"
+gem "jekyll-seo-tag", "~> 2.8"
+gem "jekyll-admin", "~> 0.11.0"
+
+# For development (optional, only if you need webrick for local testing)
+group :development do
+  gem "webrick", "~> 1.8"
 end
-
-platforms :mingw, :x64_mingw, :mswin, :jruby do
-  gem "tzinfo", ">= 1", "< 3"
-  gem "tzinfo-data"
-end
-
-gem "wdm", "~> 0.1.1", :platforms => [:mingw, :x64_mingw, :mswin]
-gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
-
